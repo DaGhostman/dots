@@ -23,4 +23,16 @@ nmap('<Leader>f', function() require("fzf-lua").files() end, "[F]iles")
 nmap('<C-f>', function() require("fzf-lua").files() end, "Alias of <Leader>f")
 nmap('<Leader>g', function() require("fzf-lua").grep() end, "[G]rep")
 
+nmap('<Leader>ha', function() require("harpoon"):list():add() end, "[H]arpoon [A]dd")
+nmap('<Leader>hl', function()
+    local harpoon = require("harpoon")
+    harpoon.ui:toggle_quick_menu(harpoon:list())
+end, "[H]arpoon [A]dd")
+nmap('<Leader>h1', function() require("harpoon"):list():select(1) end, "[H]arpoon switch to [1]")
+nmap('<Leader>h2', function() require("harpoon"):list():select(2) end, "[H]arpoon switch to [2]")
+nmap('<Leader>h3', function() require("harpoon"):list():select(3) end, "[H]arpoon switch to [3]")
+nmap('<Leader>h4', function() require("harpoon"):list():select(4) end, "[H]arpoon switch to [4]")
+nmap('<C-h>', function() require("harpoon"):list():prev() end, "[H]arpoon [P]rev")
+nmap('<C-l>', function() require("harpoon"):list():next() end, "[H]arpoon [N]ext")
+
 return {}
