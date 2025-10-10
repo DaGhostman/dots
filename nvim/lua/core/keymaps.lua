@@ -1,6 +1,7 @@
 vim.keymap.set('n', '<Esc>', vim.cmd.nohlsearch, { silent = true })
 
-vim.keymap.set('n', 'bd', function() require('barbar').delete() end, { silent = true })
+vim.keymap.set('n', 'bd', function() require("buffexit").bdelete() end, { silent = true })
+
 vim.keymap.set('n', '<A-,>', function() require('barbar').previous() end, { silent = true })
 vim.keymap.set('n', '<A-.>', function() require('barbar').next() end, { silent = true })
 
