@@ -1,4 +1,26 @@
 return {
+    {
+        "nvim-treesitter/nvim-treesitter",
+        dependencies = {
+            "OXY2DEV/markview.nvim",
+            "nvim-treesitter/nvim-treesitter-textobjects",
+            "nvim-treesitter/nvim-treesitter-refactor",
+            "nvim-treesitter/nvim-treesitter-context",
+        },
+        config = function()
+            require('nvim-treesitter.configs').setup {
+                auto_install = true,
+                ensure_installed = {},
+                ignore_install = {},
+                modules = {},
+                highlight = {
+                    enable = true,
+                    additional_vim_regex_highlighting = false,
+                },
+                sync_install = false,
+            }
+        end
+    },
     { "onsails/lspkind.nvim" },
     { "neovim/nvim-lspconfig" },
     {
@@ -9,7 +31,7 @@ return {
                 -- See the configuration section for more details
                 -- Load luvit types when the `vim.uv` word is found
                 { path = "${3rd}/luv/library", words = { "vim%.uv" } },
-                "lazyn.vim",
+                "lazy.nvim",
             },
         },
     },
@@ -37,7 +59,6 @@ return {
                         mode = 'symbol',
                         max_width = 50,
                         show_labelDetails = true,
-
                     })
                 },
                 snippet = {
@@ -74,13 +95,4 @@ return {
             "neovim/nvim-lspconfig",
         },
     },
-    {
-        "nvim-treesitter/nvim-treesitter",
-        dependencies = {
-            "OXY2DEV/markview.nvim",
-            "nvim-treesitter/nvim-treesitter-textobjects",
-            "nvim-treesitter/nvim-treesitter-refactor",
-            "nvim-treesitter/nvim-treesitter-context",
-        }
-    }
 }
