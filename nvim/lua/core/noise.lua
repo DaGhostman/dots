@@ -7,10 +7,14 @@ return {
             "rcarriga/nvim-notify",
         },
         config = function()
-            require("notify").setup({
+            local notify = require("notify")
+            notify.setup({
                 merge_duplicates = true,
                 background_colour = "#000000",
+                render = "compact",
+                top_down = false,
             })
+            vim.notify = notify
             require("noice").setup({
                 cmdline = {
                     view = "cmdline",
