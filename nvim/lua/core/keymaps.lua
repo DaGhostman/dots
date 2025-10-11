@@ -1,6 +1,9 @@
 local function nmap(sequence, command, description)
     vim.keymap.set('n', sequence, command, { silent = true, desc = description })
 end
+local function tmap(sequence, command, description)
+    vim.keymap.set('t', sequence, command, { silent = true, desc = description })
+end
 
 vim.keymap.set('n', '<Esc>', vim.cmd.nohlsearch, { silent = true })
 
@@ -34,5 +37,8 @@ nmap('<Leader>h3', function() require("harpoon"):list():select(3) end, "[H]arpoo
 nmap('<Leader>h4', function() require("harpoon"):list():select(4) end, "[H]arpoon switch to [4]")
 nmap('<C-h>', function() require("harpoon"):list():prev() end, "[H]arpoon [P]rev")
 nmap('<C-l>', function() require("harpoon"):list():next() end, "[H]arpoon [N]ext")
+
+nmap('<A-f>', function() require("toggleterm").toggle(nil, nil, nil, "float", "Float Term") end, "Toggle Floating term")
+tmap('<A-f>', function() require("toggleterm").toggle(nil, nil, nil, "float", "Float Term") end, "Toggle Floating term")
 
 return {}
