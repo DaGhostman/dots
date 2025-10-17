@@ -7,10 +7,14 @@ default:
     @just if-not hyperfine
     @just if-not starship
     @just if-not zellij
-    @just if-not lua luarocks
+    @just if-not lua
+    @just if-not luarocks
     @just if-not go
     @just if-not node
-    @just if-not python3 pipx
+    @just if-not python3
+    @just if-not pipx
+    @just if-not git
+    @just if-not lazygit
     @just --list
 
 [private]
@@ -43,9 +47,12 @@ brew *pkgs:
 nvim:
     ln -s $PWD/nvim ~/.config/nvim
 
-# Configure git (excl. user.name & user.email)
+# Configure git (excl. user.name & user.email) & SSH Agent
 git:
+    ln -s $PWD/ssh/config ~/.ssh/config
     ln -s $PWD/git/.gitconfig ~/.gitconfig
 
+# Configure ripgrep
 ripgrep:
     ln -s $PWD/ripgrep ~/.config/ripgrep
+
