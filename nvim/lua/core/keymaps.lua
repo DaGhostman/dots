@@ -21,6 +21,7 @@ nmap('gra', function() vim.lsp.buf.code_action() end, "[G]et [R]elative [A]ction
 nmap('grn', function() vim.lsp.buf.rename() end, "[G]et [R]elative re[N]ame")
 nmap('gds', function() vim.lsp.buf.document_symbol() end, "[G]ets [D]ocument [S]ymbols")
 
+nmap('<leader>t', function() require("yazi").toggle() end, 'Toggle Yazi')
 nmap('<Leader>b', function() require("fzf-lua").buffers() end, "[B]uffers")
 nmap('<Leader>f', function() require("fzf-lua").files() end, "[F]iles")
 nmap('<C-f>', function() require("fzf-lua").files() end, "Alias of <Leader>f")
