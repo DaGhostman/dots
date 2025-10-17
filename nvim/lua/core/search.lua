@@ -1,6 +1,12 @@
 return {
     {
         "ibhagwan/fzf-lua",
-        opts = {}
+        config = function()
+            require('fzf-lua').setup {
+                preview = {
+                    default = 'bat'
+                }
+            }
+        end
     }
 }
