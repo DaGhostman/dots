@@ -36,6 +36,12 @@ nmap('<Leader>h1', function() require("harpoon"):list():select(1) end, "[H]arpoo
 nmap('<Leader>h2', function() require("harpoon"):list():select(2) end, "[H]arpoon switch to [2]")
 nmap('<Leader>h3', function() require("harpoon"):list():select(3) end, "[H]arpoon switch to [3]")
 nmap('<Leader>h4', function() require("harpoon"):list():select(4) end, "[H]arpoon switch to [4]")
+nmap('<Leader>h5', function() require("harpoon"):list():select(5) end, "[H]arpoon switch to [5]")
+nmap('<Leader>h6', function() require("harpoon"):list():select(6) end, "[H]arpoon switch to [6]")
+nmap('<Leader>h7', function() require("harpoon"):list():select(7) end, "[H]arpoon switch to [7]")
+nmap('<Leader>h8', function() require("harpoon"):list():select(8) end, "[H]arpoon switch to [8]")
+nmap('<Leader>h9', function() require("harpoon"):list():select(9) end, "[H]arpoon switch to [9]")
+nmap('<Leader>h0', function() require("harpoon"):list():select(0) end, "[H]arpoon switch to [0]")
 nmap('<C-h>', function() require("harpoon"):list():prev() end, "[H]arpoon [P]rev")
 nmap('<C-l>', function() require("harpoon"):list():next() end, "[H]arpoon [N]ext")
 
