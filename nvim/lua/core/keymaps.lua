@@ -21,6 +21,14 @@ nmap('gra', function() vim.lsp.buf.code_action() end, "[G]et [R]elative [A]ction
 nmap('grn', function() vim.lsp.buf.rename() end, "[G]et [R]elative re[N]ame")
 nmap('gds', function() vim.lsp.buf.document_symbol() end, "[G]ets [D]ocument [S]ymbols")
 
+nmap('<leader>rr', function() require("fzf-lua").lsp_references() end, "FZF References")
+nmap('<leader>rd', function() require("fzf-lua").lsp_definitions() end, "FZF Definitions")
+nmap('<leader>ri', function() require("fzf-lua").lsp_implementations() end, "FZF Implementations")
+nmap('<leader>ra', function() require("fzf-lua").lsp_code_actions() end, "FZF Document Symbols")
+nmap('<leader>rs', function() require("fzf-lua").lsp_document_symbols() end, "FZF Document Symbols")
+nmap('<leader>rx', function() require("fzf-lua").lsp_document_diagnostics() end, "FZF Document Diagnostics")
+nmap('<leader>rX', function() require("fzf-lua").lsp_workspace_diagnostics() end, "FZF Workspace Diagnostics")
+
 nmap('<leader>t', function() require("yazi").toggle() end, 'Toggle Yazi')
 nmap('<Leader>b', function() require("fzf-lua").buffers() end, "[B]uffers")
 nmap('<Leader>f', function() require("fzf-lua").files() end, "[F]iles")
