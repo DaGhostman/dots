@@ -57,3 +57,6 @@ git:
 ripgrep:
     ln -s $PWD/ripgrep ~/.config/ripgrep
 
+aliases:
+    cp $PWD/.aliases ~/.config/.dot-aliases
+    echo "You should either `source ~/.dot-aliases` or add it to your shell's rc file (.bashrc, .zshrc, etc.)"
