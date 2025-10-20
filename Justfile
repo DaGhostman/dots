@@ -15,6 +15,7 @@ default:
     @just if-not pipx
     @just if-not git
     @just if-not lazygit
+    @just if-not tailspin
     @just --list
 
 [private]
