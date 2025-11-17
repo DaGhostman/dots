@@ -11,12 +11,12 @@ if [[ -f ${BREW_PREFIX}/bin/brew ]]; then
     eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 fi
 
-if [[ -f ${BREW_PREFIX}/bin/fzf ]]; then
-    eval "$(/home/linuxbrew/.linuxbrew/bin/fzf --$(basename ${SHELL}))"
+if [[ -f $(which fzf) ]]; then
+    eval "$(fzf --$(basename ${SHELL}))"
 fi
 
-if [[ -f ${BREW_PREFIX}/bin/starship ]]; then
-    eval "$(/home/linuxbrew/.linuxbrew/bin/starship init $(basename ${SHELL}))"
+if [[ -f $(which starship) ]]; then
+    eval "$(starship init $(basename ${SHELL}))"
 fi
 
 function ollama() {
