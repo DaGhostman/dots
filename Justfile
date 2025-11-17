@@ -51,7 +51,7 @@ nvim:
 # Configure git (excl. user.name & user.email) & SSH Agent
 git:
     ln -s $PWD/ssh/config ~/.ssh/config
-    ln -s $PWD/git/.gitconfig ~/.gitconfig
+    cp $PWD/git/.gitconfig ~/.gitconfig
 
 # Configure ripgrep
 ripgrep:
