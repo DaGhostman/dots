@@ -58,5 +58,15 @@ ripgrep:
     ln -s $PWD/ripgrep ~/.config/ripgrep
 
 aliases:
-    cp $PWD/.aliases ~/.config/.dot-aliases
-    echo "You should either `source ~/.dot-aliases` or add it to your shell's rc file (.bashrc, .zshrc, etc.)"
+    #!/usr/bin/bash
+    CURRENT_SHELL="$(basenam ${SHELL})"
+    if [ $CURRENT_SHELL == "zsh" ]; then
+        echo "Updating ~/.zshrc"
+        echo "source ${PWD}/aliases/bash.sh" >> ~/.zshrc
+    elif [ $CURRENT_SHELL == "bash" ]; then
+        echo "Updating ~/.bashrc"
+        echo "source ${PWD}/aliases/bash.sh" >> ~/.bashrc
+    elif [ $CURRENT_SHELL == "fish" ]; then
+        echo "Linking to ~/.config/fish/conf.d/aliases.fish"
+        ln -s ${PWD}/aliases/fish.fish ~/.config/fish/conf.d/aliases.fish
+    end
