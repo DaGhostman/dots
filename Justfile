@@ -59,7 +59,7 @@ ripgrep:
 
 aliases:
     #!/usr/bin/bash
-    CURRENT_SHELL="$(basenam ${SHELL})"
+    CURRENT_SHELL="$(basename ${SHELL})"
     if [ $CURRENT_SHELL == "zsh" ]; then
         echo "Updating ~/.zshrc"
         echo "source ${PWD}/aliases/bash.sh" >> ~/.zshrc
@@ -67,6 +67,6 @@ aliases:
         echo "Updating ~/.bashrc"
         echo "source ${PWD}/aliases/bash.sh" >> ~/.bashrc
     elif [ $CURRENT_SHELL == "fish" ]; then
-        echo "Linking to ~/.config/fish/conf.d/aliases.fish"
-        ln -s ${PWD}/aliases/fish.fish ~/.config/fish/conf.d/aliases.fish
-    end
+        echo "Linking to ~/.config/fish/conf.d/aliases.fish";
+        ln -s ${PWD}/aliases/fish.fish ~/.config/fish/conf.d/aliases.fish;
+    fi
