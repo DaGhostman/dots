@@ -9,10 +9,6 @@ default:
     @just if-not zellij
     @just if-not lua
     @just if-not luarocks
-    @just if-not go
-    @just if-not node
-    @just if-not python3
-    @just if-not pipx
     @just if-not git
     @just if-not lazygit
     @just if-not tailspin
@@ -23,26 +19,12 @@ if-not *pkgs:
     #!/usr/bin/bash
     function if-not() {
         if [[ -z $(which $1) ]]; then
-            echo "Installing {{ pkgs }} as it does not exist"
-            just brew $@
+            echo -e "Missing required package {{ pkgs }}"
+            return 1;
         fi
     }
 
     if-not {{ pkgs }}
-
-# Install packages using brew
-[group('utils')]
-brew *pkgs:
-    #!/usr/bin/bash
-    function brew() {
-        if [[ -z $(which brew) ]]; then
-            echo -e "Brew is not installed, you should install it follwoing the instructions at https://docs.brew.sh/Installation"
-        fi
-
-        /home/linuxbrew/.linuxbrew/bin/brew install $@
-    }
-
-    brew {{ pkgs }}
 
 # Install NeoVim configs
 nvim:
@@ -56,6 +38,46 @@ git:
 # Configure ripgrep
 ripgrep:
     ln -s $PWD/ripgrep ~/.config/ripgrep
+
+# Bootstrap opencode configuration
+[group('llm')]
+opencode:
+    ln -s $PWD/llm/opencode ~/.config/opencode
+
+# Bootstrap llama-swap configuration
+[group('llm')]
+llama-swap:
+    ln -s $PWD/llm/llama-swap ~/.config/llama-swap
+
+# Attempt to install some default models, giving up in ~15 minutes
+[group('llm')]
+pull-models:
+    timeout 15m llama-cli -hf nomic-ai/nimic-embed-text-v1.5-GGUF:Q8_0 --prompt /exit
+    timeout 15m llama-cli -hf LiquidAI/LFM2.5-1.2B-Thinking-GGUF:Q4_K_M --prompt /exit
+    timeout 15m llama-cli -hf LiquidAI/LFM2-24B-A2B-GGUF:Q4_K_M --prompt /exit
+    timeout 15m llama-cli -hf unsloth/Qwen3.5-27B-GGUF:UD-Q4_K_XL --prompt /exit
+    timeout 15m llama-cli -hf unsloth/Qwen3.5-35B-A3B-GGUF:MXFP4_MOE --prompt /exit
+    timeout 30m llama-cli -hf unsloth/Qwen3-Coder-Next-GGUF:MXFP4_MOE --prompt /exit
+
+# Check if llama.cpp is installed (is llama-server available) and proceeds to pull the default models and setup opencode & llama-swap
+[group('llm')]
+llm:
+    #!/usr/bin/bash
+    if [ -z $(which llama-server) ]; then
+        echo -e "Llama.cpp does not appear to be installed or is not in $PATH";
+        return 1;
+    fi
+    just pull-models
+    just opencode
+    just llama-swap
+    just llama-swap-service
+
+[private]
+[group('services')]
+llama-swap-service:
+    mkdir -p $HOME/.config/systemd/user
+    cp $PWD/services/llama-swap.service $HOME/.config/systemd/user/llama-swap.service
+    systemctl enable --user llama-swap --now
 
 aliases:
     #!/usr/bin/bash
