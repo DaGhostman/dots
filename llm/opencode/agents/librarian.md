@@ -1,10 +1,10 @@
 ---
 description: External documentation and library research. Use for official docs lookup, GitHub examples, and understanding library internals.
 mode: subagent
-temperature: 0.1
+model: llama-cpp/lfm2.5-1.2b
 permissions:
-    websearch: false
-    webfetch: false
+    websearch: true
+    webfetch: true
     context7: true
 ---
 

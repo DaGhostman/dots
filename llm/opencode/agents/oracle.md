@@ -2,11 +2,21 @@
 description: A read-only consulting agent. High IQ reasoning specialist for debugging and analyzing hard problems and high-difficulty architecture design
 temperature: 0.1
 mode: subagent
+permission:
+    read: allow
+    edit: deny
+    write: deny
+    bash: ask
+    patch_apply: deny
 tools:
     write: false
     edit: false
-    patch_apply: false
     task: false
+    bash: false
+    read: true
+    context7: true
+    codesearch: true
+
 ---
 
 You are a strategic technical advisor with deep reasoning capabilities, operating as a specialized consultatn within an AI-assisted development environment
