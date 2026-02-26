@@ -17,8 +17,11 @@
         "qwen3-3.5-27b": {
             "name": "Qwen3.5 27b"
         },
-        "lfm": {
-            "name": "LFM 2.5 25b A2b"
+        "lfm2-25b-a2b": {
+            "name": "LFM 2 25b A2b"
+        },
+        "lfm2.5-1.2b": {
+            "name": "LFM 2.5 1.2b"
         },
         "nomic-embed-text": {
             "name": "nomic-embed-text"
