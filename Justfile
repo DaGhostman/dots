@@ -48,6 +48,7 @@ opencode:
 [group('llm')]
 llama-swap:
     ln -s $PWD/llm/llama-swap ~/.config/llama-swap
+    @just llama-swap-service
 
 # Attempt to install some default models, giving up in ~15 minutes
 [group('llm')]
