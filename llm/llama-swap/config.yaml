@@ -20,11 +20,6 @@ groups:
       - qwen3-coder-next
       - qwen3-3.5-27b
       - qwen3-3.5-35b-a3b
-  thinking:
-    swap: false
-    exclusive: false
-    members:
-      - qwen3-3.5-35b-a3b
   research:
     swap: false
     exclusive: false

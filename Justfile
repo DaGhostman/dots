@@ -77,7 +77,7 @@ llm:
 [group('services')]
 llama-swap-service:
     mkdir -p $HOME/.config/systemd/user
-    cp $PWD/services/llama-swap.service $HOME/.config/systemd/user/llama-swap.service
+    ln -s $PWD/services/llama-swap.service $HOME/.config/systemd/user/llama-swap.service
     systemctl enable --user llama-swap --now
 
 aliases:
