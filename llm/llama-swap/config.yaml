@@ -1,0 +1,42 @@
+models:
+  qwen3-coder-next:
+    cmd: llama-server -hf mradermacher/Qwen3-Coder-Next-REAM-GGUF:Q4_K_M --jinja --ctx-size 262144 --temp 1 --top-p 0.95 --min-p 0.01 --top-k 40 --port ${PORT} --flash-attn on --fit on -ctk q8_0 -ctv q8_0
+  qwen3-3.5-35b-a3b:
+    cmd: llama-server -hf unsloth/Qwen3.5-35B-A3B-GGUF:MXFP4_MOE --jinja --ctx-size 262144 --temp 0.6 --top-p 0.95 --min-p 0.0 --top-k 20 --port ${PORT} --flash-attn on --fit on -ctk q8_0 -ctv q8_0 
+  qwen3-3.5-27b:
+    cmd: llama-server -hf unsloth/Qwen3.5-27B-GGUF:UD-Q4_K_XL --jinja --ctx-size 262144 --temp 0.6 --top-p 0.95 --min-p 0.0 --top-k 20 --port ${PORT} --flash-attn on --fit on -ctk q8_0 -ctv q8_0
+  lfm2-24b-A2b:
+    cmd: llama-server -hf LiquidAI/LFM2-24B-A2B-GGUF:Q4_K_M --ctx-size 32768 --temp 0.1 --top-k 50 --repeat-penalty 1.05 --port ${PORT} -ngl 0
+  lfm2.5-1.2B:
+    cmd: llama-server -hf LiquidAI/LFM2.5-1.2B-Thinking-GGUF:Q4_K_M --ctx-size 32768 --temp 0.05 --top-k 50 --repeat-penalty 1.05 --port ${PORT} -ngl 0
+  nomic-embed-text:
+    cmd: llama-server -hf nomic-ai/nomic-embed-text-v1.5-GGUF:Q8_0 --embeddings --fit on --port ${PORT} -ngl 0
+
+groups:
+  coding:
+    swap: true
+    exclusive: false
+    members:
+      - qwen3-coder-next
+      - qwen3-3.5-27b
+      - qwen3-3.5-35b-a3b
+  thinking:
+    swap: false
+    exclusive: false
+    members:
+      - qwen3-3.5-35b-a3b
+  research:
+    swap: false
+    exclusive: false
+    members:
+      - lfm2-24b-A2b
+  memories:
+    swap: false
+    exclusive: false
+    members:
+      - lfm2.5-1.2B
+  embedding:
+    swap: false
+    exclusive: false
+    members:
+      - nomic-embed-text
