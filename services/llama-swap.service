@@ -1,0 +1,8 @@
+[Unit]
+Description=Llama.cpp Swap - LLM auto-started
+
+[Service]
+Exec=llama-swap --listen localhost:11434 -watch-config --config=$HOME/.config/llama-swap/config.yaml
+
+[Install]
+RequiredBy=graphical.target
