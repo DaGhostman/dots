@@ -60,17 +60,14 @@
   },
   "agent": {
     "explore": {
-      "disable": true
-    },
-    "general": {
-      "disable": true
+      "temperature": 1
     }
   },
   "plugin": [
     "opencode-mem@^2.11",
     "@tarquinen/opencode-dcp@^2.1.8",
     "@mohak34/opencode-notifier@latest",
-    // "better-opencode-async-agents",
+    "better-opencode-async-agents",
     "oh-my-opencode-slim"
   ]
 }

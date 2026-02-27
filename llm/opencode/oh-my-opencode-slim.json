@@ -53,25 +53,23 @@
         "llama-cpp/qwen3-3.5-35b-a3b"
       ],
       "oracle": [
-        "llama-cpp/qwen3-3.5-35b-a3b",
         "llama-cpp/qwen3-3.5-27b",
         "opencode/big-pickle"
       ],
       "designer": [
-        "llama-cpp/qwen3-3.5-35b-a3b",
-        "llama-cpp/qwen3-3.5-27b"
+        "llama-cpp/qwen3-3.5-27b",
       ],
       "explorer": [
-        "llama-cpp/lfm2-25b-a2b",
-        "opencode/big-pickle"
+        "opencode/big-pickle",
+        "llama-cpp/qwen3-3.5-35b-a3b",
       ],
       "librarian": [
-        "llama-cpp/lfm2-25b-a2b",
-        "opencode/gpt-5-nano"
+        "opencode/gpt-5-nano",
+        "llama-cpp/qwen3-3.5-35b-a3b",
       ],
       "fixer": [
+        "llama-cpp/qwen3-3.5-27b",
         "llama-cpp/qwen3-3.5-35b-a3b",
-        "llama-cpp/qwen3-3.5-27b"
       ]
     }
   }
