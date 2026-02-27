@@ -1,0 +1,78 @@
+{
+  "preset": "manual",
+  "presets": {
+    "manual": {
+      "orchestrator": {
+        "model": "llama-cpp/qwen3-3.5-35b-a3b",
+        "skills": [
+          "*"
+        ],
+        "mcps": [
+          "websearch"
+        ]
+      },
+      "oracle": {
+        "model": "llama-cpp/qwen3-3.5-35b-a3b",
+        "skills": [],
+        "mcps": []
+      },
+      "designer": {
+        "model": "llama-cpp/qwen3-3.5-35b-a3b",
+        "skills": [
+          "agent-browser"
+        ],
+        "mcps": []
+      },
+      "explorer": {
+        "model": "llama-cpp/qwen3-3.5-35b-a3b",
+        "skills": [],
+        "mcps": []
+      },
+      "librarian": {
+        "model": "llama-cpp/lfm2-25b-a2b",
+        "skills": [],
+        "mcps": [
+          "websearch",
+          "context7",
+          "grep_app"
+        ]
+      },
+      "fixer": {
+        "model": "llama-cpp/qwen3-3.5-35b-a3b",
+        "skills": [],
+        "mcps": []
+      }
+    }
+  },
+  "balanceProviderUsage": false,
+  "fallback": {
+    "enabled": true,
+    "timeoutMs": 15000,
+    "chains": {
+      "orchestrator": [
+        "llama-cpp/qwen3-3.5-35b-a3b"
+      ],
+      "oracle": [
+        "llama-cpp/qwen3-3.5-35b-a3b",
+        "llama-cpp/qwen3-3.5-27b",
+        "opencode/big-pickle"
+      ],
+      "designer": [
+        "llama-cpp/qwen3-3.5-35b-a3b",
+        "llama-cpp/qwen3-3.5-27b"
+      ],
+      "explorer": [
+        "llama-cpp/lfm2-25b-a2b",
+        "opencode/big-pickle"
+      ],
+      "librarian": [
+        "llama-cpp/lfm2-25b-a2b",
+        "opencode/gpt-5-nano"
+      ],
+      "fixer": [
+        "llama-cpp/qwen3-3.5-35b-a3b",
+        "llama-cpp/qwen3-3.5-27b"
+      ]
+    }
+  }
+}
