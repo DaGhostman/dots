@@ -30,14 +30,6 @@
     }
   },
   "mcp": {
-    "ddg-search": {
-      "type": "local",
-      "enabled": true,
-      "command": [
-        "uvx",
-        "duckduckgo-mcp-server"
-      ]
-    },
     "tree-sitter-analyzer": {
       "type": "local",
       "enabled": true,
@@ -56,7 +48,12 @@
         "@upstash/context7-mcp"
       ],
       "enabled": true
-    }
+    },
+    "exa": {
+      "type": "remote",
+      "url": "https://mcp.exa.ai/mcp",
+      "enabled": true
+    },
   },
   "agent": {
     "explore": {
@@ -70,7 +67,7 @@
     "opencode-mem@^2.11",
     "@tarquinen/opencode-dcp@^2.1.8",
     "@mohak34/opencode-notifier@latest",
-    // "better-opencode-async-agents",
-    "oh-my-opencode-slim"
+    "better-opencode-async-agents",
+    "opencode-codebase-index@^0.5.1",
   ]
 }
