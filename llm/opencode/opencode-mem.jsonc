@@ -30,7 +30,7 @@
   // ============================================
   
   // Default: Nomic Embed v1 (768 dimensions, 8192 context, multilingual)
-  "embeddingModel": "Xenova/jina-embeddings-v2-base-en",
+  // "embeddingModel": "Xenova/jina-embeddings-v2-base-en",
   
   // Auto-detected dimensions (no need to set manually)
   // "embeddingDimensions": 768,
@@ -44,7 +44,7 @@
   // Optional: Use OpenAI-compatible API for embeddings
   // "embeddingApiUrl": "http://localhost:11434/v1",
   // "embeddingApiKey": "sk-...",
-  // "embeddingModel": "granite-embedding",  // 1536 dims, auto-detected
+  "embeddingModel": "nomic-ai/nomic-embed-text-v1.5",  // 1536 dims, auto-detected
   
   // ============================================
   // Web Server Settings
@@ -86,13 +86,13 @@
   // It runs in background without blocking your main session
   // Note: Ollama may not support tool calling. Use OpenAI, Anthropic, or Groq for best results.
   
-  "autoCaptureEnabled": true,
+  "autoCaptureEnabled": false,
   
   // Provider type: "openai-chat" | "openai-responses" | "anthropic"
   "memoryProvider": "openai-chat",
   
   // REQUIRED for auto-capture (all 3 must be set):
-  "memoryModel": "lfm2.5-1.2B",
+  "memoryModel": "qwen3-3.5-0.8b",
   "memoryApiUrl": "http://localhost:11434/v1",
   "memoryApiKey": "sk-...",
 
@@ -138,7 +138,7 @@
   // Temperature for AI API requests (set to false to omit parameter for models that don't support it)
   // Some reasoning models (like o1, o3, gpt-5) don't support temperature parameter
   // Set to false and add "memoryTemperature": false in config when using such models
-  "memoryTemperature": 0.7,
+  // "memoryTemperature": 0.7,
 
   // Language for auto-capture summaries (default: "auto" for auto-detection)
   // Options: "auto", "en", "id", "zh", "ja", "es", "fr", "de", "ru", "pt", "ar", "ko"
@@ -149,10 +149,10 @@
   // ============================================
 
   // Show toast when memory is auto-captured
-  "showAutoCaptureToasts": true,
+  "showAutoCaptureToasts": false,
 
   // Show toast when user profile is updated
-  "showUserProfileToasts": true,
+  "showUserProfileToasts": false,
 
   // Show toast for error messages
   "showErrorToasts": true,
@@ -194,7 +194,7 @@
   // ============================================
   
   // Minimum similarity score (0-1) for memory search results
-  "similarityThreshold": 0.6,
+  "similarityThreshold": 0.7,
 
   // Maximum number of memories to return in search results
   "maxMemories": 10,
@@ -204,5 +204,5 @@
   // ============================================
   
   // Inject user profile into AI context (preferences, patterns, workflows)
-  "injectProfile": true
+  "injectProfile": false
 }

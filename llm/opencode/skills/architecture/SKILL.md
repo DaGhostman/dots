@@ -5,7 +5,7 @@ license: MIT
 compatibility: opencode
 ---
 
-## What I do
+## What I Do
 
 - Propose architectural styles (monolith, microservices, serverless, event‑driven, CQRS, hexagonal)
 - Evaluate trade‑offs between complexity, scalability, team size, and time-to-market
@@ -14,10 +14,10 @@ compatibility: opencode
 - Guide on API design patterns (REST, GraphQL, gRPC)
 - Address scalability concerns and technical debt assessment
 
-## When to use me
+## When to Use Me
 
 When planning a new system, evaluating architectural decisions, or refactoring large components. Also useful for technical design documents and RFCs.
 
-## When NOT to use me
+## When NOT to Use Me
 
 For implementation details—use relevant language/framework skills. For CI/CD setup—use DevOps skill.

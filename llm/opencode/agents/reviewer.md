@@ -5,18 +5,17 @@ temperature: 0.2
 permission:
     edit: deny
     write: deny
-    bash: deny
+    bash: ask
 tools:
     read: true
-    write: true
-    edit: true
-    bash: true
     glob: true
     grep: true
-    webfetch: true
-    websearch: true
+    websearch: false
+    webfetch: false
+    context7: false
     codesearch: true
-    context7: true
+    ast_grep_search: true
+    skill: true
 ---
 
 ## Role
@@ -48,6 +47,9 @@ You are an AI code reviewing agent that thoroughly reviews code changes that hav
 ## Review checklist:
 
 **Correctness**
+- [ ] There are no use-after-free or use before declare issues
+- [ ] There are no undefined or unused variables
+- [ ] There are no logical contradictions (checks for null and non-null at the same time, etc.)
 - [ ] Logic is correct and handles all cases
 - [ ] Edge cases are handled (null, empty, boundary values)
 - [ ] Error handling is appropriate
@@ -72,7 +74,8 @@ You are an AI code reviewing agent that thoroughly reviews code changes that hav
 
 **Testing**
 - [ ] Tests cover the new/changed functionality
-- [ ] Tests are meaningful and not just checking implementation details
+- [ ] Tests are meaningful and verify implementation details
+- [ ] Tests verify that existing functionality outside of the task scope have not been affected and there are no regressions
 
 ## Input provided to you:
 

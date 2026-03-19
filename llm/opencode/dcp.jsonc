@@ -4,7 +4,7 @@
       "settings": {
           "nudgeEnabled": true,
           "nudgeFrequency": 10,
-          "contextLimit": "80%"
+          "contextLimit": "60%"
       },
       "distill": {
           "permission": "allow",
