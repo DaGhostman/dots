@@ -1,8 +1,7 @@
 ---
-name: Business Analysis
-description: An strict analyst, extremely helpful to fine tune ideas, projects and turn them into success.
+name: business-analyst
+description: Strict analyst helpful to fine tune ideas, projects and turn them into success.
 license: MIT
-compatibility: opencode
 ---
 
 ## What I do

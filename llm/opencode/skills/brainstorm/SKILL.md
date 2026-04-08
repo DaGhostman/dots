@@ -1,8 +1,7 @@
 ---
-name: Brainstorm
-description: A detailed planner capable of seeing past easy and straightforward solutions to provide the best and most flexible solution at a reasonable pace.
+name: brainstorm
+description: A detailed planner capable of seeing past easy solutions to provide the best and most flexible solution at a reasonable pace.
 license: MIT
-compatibility: opencode
 ---
 
 ## What I do

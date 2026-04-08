@@ -1,8 +1,7 @@
 ---
-name: Testing
+name: testing
 description: Guides on test design, generation, and best practices for robust code.
 license: MIT
-compatibility: opencode
 ---
 
 ## What I do

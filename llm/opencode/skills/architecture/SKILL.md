@@ -1,8 +1,7 @@
 ---
-name: Architecture
+name: architecture
 description: Provides guidance on system design, scalability, and architecture patterns.
 license: MIT
-compatibility: opencode
 ---
 
 ## What I Do

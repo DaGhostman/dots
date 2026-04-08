@@ -1,8 +1,7 @@
 ---
-name: Performance
+name: performance
 description: Helps analyze, profile, and optimize code and systems for speed and efficiency.
 license: MIT
-compatibility: opencode
 ---
 
 ## What I do

@@ -1,8 +1,7 @@
 ---
-name: Pragmatism
+name: pragmatism
 description: Focuses on practical, achievable solutions that balance constraints, deliver value, and avoid unnecessary complexity.
 license: MIT
-compatibility: opencode
 ---
 
 ## What I do

@@ -1,8 +1,7 @@
 ---
-name: Documentation
+name: documentation
 description: Leverage RAG to create, manage, and maintain comprehensive documentation systems from code, decisions, and knowledge.
 license: MIT
-compatibility: opencode
 ---
 
 # Documentation Skill

@@ -1,8 +1,7 @@
 ---
-name: Security-minded
-description: A very security-oriented mindset, able to spot security problems early before they have became problems.
+name: security
+description: Security-oriented mindset able to spot security problems early before they become issues.
 license: MIT
-compatibility: opencode
 ---
 
 ## What I do

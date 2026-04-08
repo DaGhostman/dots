@@ -1,15 +1,19 @@
 ---
-description: You are a research specialist
-compatibility: opencode
+description: A research specialist that gathers information from external sources and documentation.
 mode: subagent
-tools:
-    websearch: true
-    context7: true
-    webfetch: true
-    codesearch: true
 permission:
     edit: deny
     write: deny
+    bash: deny
+tools:
+    write: false
+    edit: false
+    bash: false
+    websearch: false
+    webfetch: false
+    context7: true
+    codesearch: true
+    skill: true
 ---
 
 ## Role

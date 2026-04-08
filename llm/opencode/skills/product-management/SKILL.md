@@ -1,8 +1,7 @@
 ---
-name: Product Management
-description: Guides the product development lifecycle, from requirement gathering to release planning.
+name: product-management
+description: Guides the product development lifecycle from requirement gathering to release planning.
 license: MIT
-compatibility: opencode
 ---
 
 ## What I do

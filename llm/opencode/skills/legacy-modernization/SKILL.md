@@ -1,8 +1,7 @@
 ---
-name: Legacy Modernization
-description: Guides the strategic modernization of legacy systems by balancing technical debt, business continuity, and domain transformation.
+name: legacy-modernization
+description: Guides strategic modernization of legacy systems by balancing technical debt, business continuity, and domain transformation.
 license: MIT
-compatibility: opencode
 ---
 
 ## What I do

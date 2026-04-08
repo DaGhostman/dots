@@ -3,13 +3,28 @@
   "provider": {
     "llama-cpp": {
       "npm": "@ai-sdk/openai-compatible",
-      "name": "local",
+      "name": "llama.cpp",
       "options": {
         "baseURL": "http://localhost:11434/v1"
       },
       "models": {
+        "gpt-oss-20b": {
+          "name": "gpt-oss-20b"
+        },
+        "nemotron": {
+          "name": "nemotron"
+        },
         "qwen3-3.5-35b-a3b": {
           "name": "Qwen3.5 35b A3b MOE"
+        },
+        "kimi": {
+          "name": "Kimi Linear"
+        },
+        "glm-4.7-flash": {
+          "name": "GLM 4.7 Flash"
+        },
+        "hypernova": {
+          "name": "Hypernova"
         },
         "qwen3-3.5-0.8b": {
           "name": "Qwen3.5 0.8b"
@@ -17,23 +32,16 @@
         "qwen3-3.5-9b": {
           "name": "Qwen3.5 9b"
         },
-        "nomic-embed-text": {
-          "name": "nomic-embed-text"
+        "lfm2-24b-a2b": {
+          "name": "LFM2 24B A2B"
+        },
+        "lfm2.5-1.2b": {
+          "name": "LFM2.5 1.2B (Thinking)"
         }
       }
     }
   },
   "mcp": {
-    "tree-sitter-analyzer": {
-      "type": "local",
-      "enabled": true,
-      "command": [
-        "uvx",
-        "--from",
-        "tree-sitter-analyzer[mcp]",
-        "tree-sitter-analyzer-mcp"
-      ]
-    },
     "context7": {
       "type": "local",
       "command": [
@@ -65,12 +73,19 @@
     },
     "general": {
       "disable": true
+    },
+    "plan": {
+      "disable": true
+    },
+    "build": {
+      "disable": true
+    },
+    "title": {
+      "model": "llama-cpp/lfm2.5-1.2b"
     }
   },
   "plugin": [
-    "opencode-mem@^2.11",
     "@mohak34/opencode-notifier@latest",
-    "opencode-codebase-index@^0.5.1",
-    "openrtk",
+    "openrtk"
   ]
 }

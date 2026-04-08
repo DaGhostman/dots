@@ -1,8 +1,7 @@
 ---
-name: Scribe
-description: A RAG-powered note & bookkeeper for memory management, knowledge graph construction, and session-based documentation.
+name: scribe
+description: A RAG-powered note and bookkeeper for memory management, knowledge graph construction, and session-based documentation.
 license: MIT
-compatibility: opencode
 ---
 
 # Scribe Skill

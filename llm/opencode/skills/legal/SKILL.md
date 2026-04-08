@@ -1,8 +1,7 @@
 ---
-name: Legal & Compliance
-description: Provides understanding of legal implications, compliance requirements, and intellectual property considerations for projects and products.
+name: legal
+description: Provides understanding of legal implications, compliance requirements, and intellectual property considerations.
 license: MIT
-compatibility: opencode
 ---
 
 ## What I do

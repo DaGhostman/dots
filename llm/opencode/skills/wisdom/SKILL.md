@@ -1,8 +1,7 @@
 ---
-name: Wisdom & Experience
-description: Applies legacy knowledge and seasoned judgment to prevent pitfalls, avoid common mistakes, and guide sustainable development.
+name: wisdom
+description: Applies legacy knowledge and seasoned judgment to prevent pitfalls and guide sustainable development.
 license: MIT
-compatibility: opencode
 ---
 
 ## What I do
