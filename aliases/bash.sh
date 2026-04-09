@@ -5,12 +5,6 @@ alias grep=rg
 
 PATH=${HOME}/.local/bin:$PATH
 
-BREW_PREFIX=${BREW_PREFIX:=/home/linuxbrew/.linuxbrew}
-
-if [[ -f ${BREW_PREFIX}/bin/brew ]]; then
-    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-fi
-
 if [[ -f $(which fzf) ]]; then
     eval "$(fzf --$(basename ${SHELL}))"
 fi
@@ -19,20 +13,16 @@ if [[ -f $(which starship) ]]; then
     eval "$(starship init $(basename ${SHELL}))"
 fi
 
-function ollama() {
-    if [[ -z $(podman ps | grep ollama) ]]; then
-        podman run --pull newer --detach --security-opt label=type:container_runtime_t --replace --device=/dev/accel --device /dev/kfd --device /dev/dri -v ollama:/root/.ollama -p 11434:11434 --name ollama ollama/ollama:rocm; 
+sequences_file="${1:-"$HOME/.local/state/caelestia/sequences.txt"}"
+
+if [[ -f "$sequences_file" ]]; then
+  sequences=$(<"$sequences_file")
+
+  for pt in /dev/pts/*; do
+    basename="$(basename -- "$pt")"
+    if [[ "$basename" =~ ^[0-9]+$ ]]; then
+      printf '%s' "$sequences" > "$pt" 2>/dev/null || true
     fi
-
-    podman exec -it ollama ollama $@
-}
-
-function openweb-ui() {
-    if [[ -z $(podman ps | grep open-webui) ]]; then
-        podman run --replace --pull newer -d --network=host -v open-webui:/app/backend/data -e OLLAMA_BASE_URL=http://127.0.0.1:11434 --name open-webui --restart always ghcr.io/open-webui/open-webui:main
-    fi
-
-    xdg-open http://localhost:8080 &
-}
-
+  done
+fi
 

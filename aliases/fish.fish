@@ -1,23 +1,34 @@
-alias cat=bat
-alias ls=eza
-alias tail=tspin
-alias grep=rg
-
 if test -f (which fzf); eval "$(fzf --$(basename {$SHELL}))"; end
 if test -f (which starship); eval "$(starship init $(basename {$SHELL}))"; end
 
-function ollama -w podman;
-    if test -z (podman ps | grep ollama);
-        podman run --pull newer --detach --security-opt label=type:container_runtime_t --replace --device=/dev/accel --device /dev/kfd --device /dev/dri -v ollama:/root/.ollama -p 11434:11434 --name ollama ollama/ollama:rocm; 
-    end
-
-    podman exec -it ollama ollama $argv
+function cat -w bat;
+    bat $argv
 end
 
-function openweb-ui -w podman; 
-    if test -z (podman ps | grep open-webui);
-        podman run --replace --pull newer -d --network=host -v open-webui:/app/backend/data -e OLLAMA_BASE_URL=http://127.0.0.1:11434 --name open-webui --restart always ghcr.io/open-webui/open-webui:main
-    end
-
-    xdg-open http://localhost:8080 &
+function ls -w eza;
+    eza $argv
 end
+
+function tail -w tspin;
+    tspin $argv
+end
+
+function grep -w rg;
+    rg $argv
+end
+
+set sequences_file "$HOME/.local/state/caelestia/sequences.txt"  
+  
+if test -f "$sequences_file"  
+    set sequences (cat "$sequences_file")  
+      
+    # Write to each pseudo-terminal  
+    for pt in /dev/pts/*  
+        set basename (basename "$pt")  
+        if string match -qr '^\d+$' -- "$basename"  
+            echo -n "$sequences" > "$pt" 2>/dev/null; or true  
+        end  
+    end  
+end
+
+export MINIMAX_API_KEY=$(cat $HOME/.local/share/opencode/auth.json | jq -r '.["minimax-coding-plan"].key')
