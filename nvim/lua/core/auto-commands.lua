@@ -14,5 +14,10 @@ vim.api.nvim_create_autocmd('BufWritePre', {
     end
 })
 
+vim.api.nvim_create_autocmd("Termopen", {
+    callback=function() 
+        vim.wo[0][0].scrolloff = 0
+    end
+})
 
 return {}

@@ -56,4 +56,6 @@ nmap('<C-l>', function() require("harpoon"):list():next() end, "[H]arpoon [N]ext
 nmap('<A-f>', function() require("toggleterm").toggle(nil, nil, nil, "float", "Float Term") end, "Toggle Floating term")
 tmap('<A-f>', function() require("toggleterm").toggle(nil, nil, nil, "float", "Float Term") end, "Toggle Floating term")
 
+tmap('<Esc>', [[<C-\><C-n>]], "Exit terminal")
+
 return {}
