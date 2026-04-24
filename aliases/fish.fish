@@ -19,7 +19,7 @@ end
 
 set sequences_file "$HOME/.local/state/caelestia/sequences.txt"  
   
-if test -f "$sequences_file"  
+if test -f "$sequences_file"; and test -z "$TMUX"; and test -z "$ZELLIJ";
     set sequences (cat "$sequences_file")  
       
     # Write to each pseudo-terminal  
