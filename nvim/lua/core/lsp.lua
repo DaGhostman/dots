@@ -3,23 +3,12 @@ return {
         "nvim-treesitter/nvim-treesitter",
         dependencies = {
             "OXY2DEV/markview.nvim",
-            "nvim-treesitter/nvim-treesitter-textobjects",
-            "nvim-treesitter/nvim-treesitter-refactor",
-            "nvim-treesitter/nvim-treesitter-context",
+            { "nvim-treesitter/nvim-treesitter-textobjects", branch = "main" },
+            { "nvim-treesitter/nvim-treesitter-context" },
         },
-        config = function()
-            require('nvim-treesitter.configs').setup {
-                auto_install = true,
-                ensure_installed = {},
-                ignore_install = {},
-                modules = {},
-                highlight = {
-                    enable = true,
-                    additional_vim_regex_highlighting = false,
-                },
-                sync_install = false,
-            }
-        end
+        lazy = false,
+        build = ':TSUpdate',
+        branch = "main",
     },
     { "onsails/lspkind.nvim" },
     { "neovim/nvim-lspconfig" },
