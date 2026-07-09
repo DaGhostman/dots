@@ -20,4 +20,13 @@ vim.api.nvim_create_autocmd("Termopen", {
     end
 })
 
+vim.api.nvim_create_autocmd({'BufEnter', 'BufAdd'}, {
+    pattern = '*.http',
+    callback = function()
+        vim.keymap.set('n', '<C-e>', function()
+            vim.cmd('Rest run')
+        end, { silent = true, noremap = true, buffer = true });
+    end,
+})
+
 return {}
