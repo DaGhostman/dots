@@ -16,19 +16,3 @@ end
 function grep -w rg;
     rg $argv
 end
-
-set sequences_file "$HOME/.local/state/caelestia/sequences.txt"  
-  
-if test -f "$sequences_file"; and test -z "$TMUX"; and test -z "$ZELLIJ";
-    set sequences (cat "$sequences_file")  
-      
-    # Write to each pseudo-terminal  
-    for pt in /dev/pts/*  
-        set basename (basename "$pt")  
-        if string match -qr '^\d+$' -- "$basename"  
-            echo -n "$sequences" > "$pt" 2>/dev/null; or true  
-        end  
-    end  
-end
-
-export MINIMAX_API_KEY=$(cat $HOME/.local/share/opencode/auth.json | jq -r '.["minimax-coding-plan"].key')

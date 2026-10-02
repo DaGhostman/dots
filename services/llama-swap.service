@@ -1,9 +1,0 @@
-[Unit]
-Description=Llama.cpp Swap - LLM auto-started
-
-[Service]
-ExecStart=llama-swap --listen localhost:11434 --watch-config --config=%h/.config/llama-swap/config.yaml
-Restart=on-failure
-
-[Install]
-RequiredBy=graphical-session.target
