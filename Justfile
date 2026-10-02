@@ -6,7 +6,7 @@ default:
     @just if-not bat
     @just if-not hyperfine
     @just if-not starship
-    @just if-not zellij
+    @just if-not tmux
     @just if-not lua
     @just if-not luarocks
     @just if-not git
@@ -35,6 +35,33 @@ git:
     mkdir -p ~/.ssh
     ln -sfn $PWD/ssh/config ~/.ssh/config
     git config --global --get-all include.path | grep -qxF "$PWD/git/.gitconfig" || git config --global --add include.path "$PWD/git/.gitconfig"
+
+# Install tmux config & plugins, start ghostty inside tmux (moves an existing ~/.tmux.conf to ~/.tmux.conf.bak)
+tmux:
+    #!/usr/bin/bash
+    set -e
+    if [ -e ~/.tmux.conf ] || [ -L ~/.tmux.conf ]; then
+        mv ~/.tmux.conf ~/.tmux.conf.bak
+        echo "Moved ~/.tmux.conf -> ~/.tmux.conf.bak (it would shadow ~/.config/tmux)"
+    fi
+    mkdir -p ~/.config
+    ln -sfn $PWD/tmux ~/.config/tmux
+    [ -d ~/.tmux/plugins/tpm ] || git clone --depth 1 https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+    ~/.tmux/plugins/tpm/bin/install_plugins
+    if command -v ghostty >/dev/null; then
+        CONF=~/.config/ghostty/config
+        mkdir -p ~/.config/ghostty
+        LINE='command = shell:~/.config/tmux/scripts/start.sh'
+        if ! grep -qxF "$LINE" "$CONF" 2>/dev/null; then
+            printf '\n# start every terminal inside tmux (dots: just tmux)\n%s\n' "$LINE" >> "$CONF"
+            echo "Ghostty now starts inside tmux ($CONF)"
+        fi
+        LINE='confirm-close-surface = false'
+        if ! grep -qxF "$LINE" "$CONF" 2>/dev/null; then
+            printf '# tmux keeps the session alive when a window closes, no need to ask\n%s\n' "$LINE" >> "$CONF"
+            echo "Ghostty no longer asks before closing ($CONF)"
+        fi
+    fi
 
 # Configure ripgrep
 ripgrep:

@@ -7,6 +7,7 @@ just            # check required tools & list recipes
 just nvim       # ~/.config/nvim     -> nvim/
 just git        # ~/.ssh/config      -> ssh/config, include git/.gitconfig
 just ripgrep    # ~/.config/ripgrep  -> ripgrep/
+just tmux       # ~/.config/tmux     -> tmux/ (zellij-like, see tmux/tmux.conf)
 just aliases    # hook aliases/ into bash, zsh or fish
 ```
 

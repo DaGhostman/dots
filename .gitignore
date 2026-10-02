@@ -11,3 +11,6 @@ auth.json
 *credentials*
 *secret*
 *.token
+
+# tmux plugins are installed into ~/.tmux/plugins, never here
+tmux/plugins/
