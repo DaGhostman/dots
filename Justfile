@@ -63,6 +63,11 @@ tmux:
         fi
     fi
 
+# Link Hyprland config (only hyprland.lua, focusshell's generated files & backups stay local)
+hypr:
+    mkdir -p ~/.config/hypr
+    ln -sfn $PWD/hypr/hyprland.lua ~/.config/hypr/hyprland.lua
+
 # Configure ripgrep
 ripgrep:
     ln -sfn $PWD/ripgrep ~/.config/ripgrep
