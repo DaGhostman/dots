@@ -8,6 +8,7 @@ just nvim       # ~/.config/nvim     -> nvim/
 just git        # ~/.ssh/config      -> ssh/config, include git/.gitconfig
 just ripgrep    # ~/.config/ripgrep  -> ripgrep/
 just tmux       # ~/.config/tmux     -> tmux/ (zellij-like, see tmux/tmux.conf)
+just hypr       # ~/.config/hypr/hyprland.lua -> hypr/hyprland.lua
 just aliases    # hook aliases/ into bash, zsh or fish
 ```
 
